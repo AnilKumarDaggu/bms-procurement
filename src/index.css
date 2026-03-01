@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Amgen Global Procurement Intelligence Platform - Design System */
+
+@layer base {
+  :root {
+    /* Primary Brand Colors - Amgen Official */
+    --amgen-blue: 210 100% 36%; /* #005EB8 */
+    --science-blue: 204 100% 39%; /* #0077C8 */
+    --innovation-blue: 214 74% 59%; /* #4A90E2 */
+    
+    /* Core UI Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 29% 24%; /* #2C3E50 Deep Charcoal */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 210 29% 24%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 24%;
+    
+    /* Primary uses Amgen Blue */
+    --primary: 210 100% 36%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Lab Gray tones */
+    --secondary: 216 33% 97%; /* #F5F7FA */
+    --secondary-foreground: 210 29% 24%;
+    
+    --muted: 216 33% 97%;
+    --muted-foreground: 215 14% 45%; /* #64748B Slate */
+    
+    /* Accent - Innovation Blue */
+    --accent: 214 74% 59%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%; /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+    --success: 158 64% 40%; /* #10B981 */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%; /* #F59E0B */
+    --warning-foreground: 0 0% 100%;
+    
+    /* Sustainability Colors */
+    --forest: 160 84% 29%; /* #059669 */
+    --ocean: 187 91% 37%; /* #0891B2 */
+    --earth: 28 84% 31%; /* #92400E */
+    
+    /* Borders & Inputs */
+    --border: 220 13% 91%; /* #E8ECEF Platinum */
+    --input: 220 13% 91%;
+    --ring: 210 100% 36%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 210 100% 36%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 210 100% 36%;
+    --sidebar-accent: 210 100% 32%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 100% 40%;
+    --sidebar-ring: 204 100% 39%;
+    
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 36%) 0%, hsl(204 100% 39%) 50%, hsl(214 74% 59%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(216 33% 97%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(210 100% 36%) 0%, hsl(204 100% 42%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 40px -10px hsl(210 100% 36% / 0.4);
+    --shadow-card-hover: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 100% 50%;
+    --primary-foreground: 222 47% 8%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 214 74% 59%;
+    --accent-foreground: 222 47% 8%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 210 100% 50%;
+    
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+    font-weight: 600;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+    font-weight: 600;
+  }
+  
+  h4 {
+    @apply text-xl;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold 
+           bg-white text-primary rounded-full
+           transition-all duration-300 ease-out
+           hover:scale-[1.02] hover:shadow-xl
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary;
+  }
+  
+  .btn-hero-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold 
+           bg-transparent text-white border-2 border-white/60 rounded-full
+           transition-all duration-300 ease-out
+           hover:bg-white/10 hover:border-white hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary;
+  }
+  
+  /* Card Styles */
+  .card-feature {
+    @apply bg-card rounded-2xl p-8 
+           shadow-lg transition-all duration-500 ease-out
+           hover:shadow-card-hover hover:-translate-y-2
+           border border-border;
+  }
+  
+  .card-agent {
+    @apply bg-card rounded-2xl p-6 
+           shadow-lg transition-all duration-500 ease-out
+           hover:shadow-card-hover hover:-translate-y-2
+           border border-border
+           relative overflow-hidden;
+  }
+  
+  .card-agent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, hsl(210 100% 36%), hsl(204 100% 39%), hsl(214 74% 59%));
+  }
+  
+  /* Section Styles */
+  .section-white {
+    @apply bg-white py-20 md:py-32;
+  }
+  
+  .section-gray {
+    @apply bg-secondary py-20 md:py-32;
+  }
+  
+  .section-blue {
+    @apply bg-primary text-white py-20 md:py-32;
+  }
+  
+  /* Metric Counter */
+  .metric-value {
+    font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+  
+  .metric-label {
+    @apply text-sm md:text-base uppercase tracking-wider text-muted-foreground mt-2;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-xl border border-black/10;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(210 100% 36% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(210 100% 36% / 0.5);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
